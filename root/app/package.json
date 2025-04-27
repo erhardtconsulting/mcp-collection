@@ -16,7 +16,8 @@
   },
   "homepage": "https://github.com/erhardtconsulting/mcp-collection#readme",
   "dependencies": {
-    "@modelcontextprotocol/server-puppeteer": "^2025.4.7",
+    "@modelcontextprotocol/server-puppeteer": "2025.4.7",
+    "mcp-searxng": "0.4.6",
     "supergateway": "2.7.0"
   }
 }

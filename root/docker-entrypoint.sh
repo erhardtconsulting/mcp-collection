@@ -9,6 +9,7 @@ VENV_DIR="/app/.venv"
 
 # available MCP servers
 ALLOWED_SERVERS=(
+  "mcp-searxng"
   "mcp-server-fetch"
   "mcp-server-puppeteer"
   "mcp-server-qdrant"
