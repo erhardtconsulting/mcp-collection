@@ -10,6 +10,7 @@ VENV_DIR="/app/.venv"
 # available MCP servers
 ALLOWED_SERVERS=(
   "mcp-server-fetch"
+  "mcp-server-qdrant"
 )
 
 print_help() {
