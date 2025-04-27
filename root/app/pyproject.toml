@@ -6,4 +6,5 @@ requires-python = ">=3.13"
 dependencies = [
     "mcp-server-fetch==2025.4.7",
     "mcp-server-qdrant==0.7.1",
+    "mcpo==0.0.12"
 ]

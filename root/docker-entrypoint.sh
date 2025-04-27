@@ -6,6 +6,7 @@ SSE_PATH=${SSE_PATH:-"/sse"}
 MESSAGE_PATH=${MESSAGE_PATH:-"/message"}
 BASE_URL=${BASE_URL:-"http://localhost:$PORT"}
 VENV_DIR="/app/.venv"
+SERVER_MODE=${SERVER_MODE:-"supergateway"}
 
 # available MCP servers
 ALLOWED_SERVERS=(
@@ -58,12 +59,23 @@ else
   SERVER_CMD="$SERVER"
 fi
 
-exec /app/node_modules/.bin/supergateway \
-  --port "$PORT" \
-  --baseUrl "$BASE_URL" \
-  --ssePath "$SSE_PATH" \
-  --messagePath "$MESSAGE_PATH" \
-  --cors \
-  --healthEndpoint /healthz \
-  --outputTransport sse \
-  --stdio "$SERVER_CMD"
+if [[ "$SERVER_MODE" == "supergateway" ]]; then
+  exec /app/node_modules/.bin/supergateway \
+    --port "$PORT" \
+    --baseUrl "$BASE_URL" \
+    --ssePath "$SSE_PATH" \
+    --messagePath "$MESSAGE_PATH" \
+    --cors \
+    --healthEndpoint /healthz \
+    --outputTransport sse \
+    --stdio "$SERVER_CMD"
+elif [[ "$SERVER_MODE" == "mcpo" ]]; then
+  exec /app/.venv/bin/mcpo \
+    --host 0.0.0.0 \
+    --port "$PORT" \
+    -- \
+    "$SERVER_CMD"
+else
+  echo "Server mode '$SERVER_MODE' is not available"
+  exit 1
+fi

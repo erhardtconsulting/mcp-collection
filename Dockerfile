@@ -16,6 +16,8 @@ ENV LANG="C.UTF-8" \
     UV_NO_CACHE=1 \
     UV_PYTHON_DOWNLOADS="automatic" \
     UV_LINK_MODE="copy" \
+    # server mode
+    SERVER_MODE="supergateway" \
     # supergateway configuration
     PORT=8080 \
     SSE_PATH="/sse" \
