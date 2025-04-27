@@ -1,0 +1,5 @@
+.idea
+*.iml
+.DS_Store
+root/app/node_modules
+root/app/.venv

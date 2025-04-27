@@ -1,0 +1,62 @@
+FROM docker.io/library/node:lts-slim@sha256:157c7ea6f8c30b630d6f0d892c4f961eab9f878e88f43dd1c00514f95ceded8a
+
+ARG TARGETARCH
+
+# renovate: datasource=github-releases depName=astral-sh/uv versioning=semver
+ARG UV_VERSION="0.6.17"
+
+ENV LANG="C.UTF-8" \
+    LC_ALL="C.UTF-8" \
+    # Python's configuration:
+    PYTHONFAULTHANDLER=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONHASHSEED="random" \
+    # UV's configuration
+    UV_COMPILE_BYTECODE=1 \
+    UV_NO_CACHE=1 \
+    UV_PYTHON_DOWNLOADS="automatic" \
+    UV_LINK_MODE="copy" \
+    PORT=8080 \
+    SSE_PATH="/sse" \
+    MESSAGE_PATH="/message" \
+    BASE_URL="http://localhost:8080"
+
+# Install poetry
+RUN set -eux; \
+    apt-get update; \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install \
+      curl \
+      tini; \
+    case "${TARGETARCH}" in \
+      'amd64') export ARCH='x86_64' ;; \
+      'arm64') export ARCH='aarch64' ;; \
+    esac; \
+    curl -fsSL "https://github.com/astral-sh/uv/releases/download/${UV_VERSION}/uv-${ARCH}-unknown-linux-gnu.tar.gz" \
+      | tar xzf - -C /usr/local/bin --strip-components=1; \
+    uv --version; \
+    apt-get -y purge \
+      curl; \
+    apt-get -y autoremove; \
+    apt-get clean
+
+# Copy root
+COPY root/ /
+
+RUN chown -R 1000:1000 /app
+
+USER 1000
+
+WORKDIR /app
+
+RUN set -ex; \
+    uv sync \
+      --locked \
+      --no-dev \
+      --no-editable; \
+    npm ci
+
+LABEL org.opencontainers.image.source="https://github.com/erhardtconsulting/mcp-collection"
+LABEL org.opencontainers.image.description="MCP collection with integrated supergateway"
+LABEL org.opencontainers.image.licenses="MIT"
+
+ENTRYPOINT ["/usr/bin/tini", "--", "/docker-entrypoint.sh"]

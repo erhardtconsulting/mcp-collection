@@ -1,0 +1,31 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: ['github>erhardtconsulting/renovate-rules:default'],
+  packageRules: [
+    /** Github-Releases (minor, patch, digest) automerge **/
+    {
+      matchDatasources: ['github-releases'],
+      matchPackageNames: [
+        'astral-sh/uv',
+      ],
+      matchUpdateTypes: ['minor', 'patch'],
+      automerge: true,
+    },
+    /** NPM (minor, patch, digest) automerge **/
+    {
+      matchDatasources: ['npm'],
+      matchPackageNames: [
+        'supergateway',
+      ],
+      matchUpdateTypes: ['minor', 'patch'],
+      automerge: true,
+    },
+    /** Docker (digest) automerge **/
+    {
+      matchDatasources: ['docker'],
+      matchPackageNames: ['docker.io/library/node'],
+      matchUpdateTypes: ['digest'],
+      automerge: true,
+    },
+  ],
+}

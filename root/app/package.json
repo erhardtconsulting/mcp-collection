@@ -1,0 +1,21 @@
+{
+  "name": "mcp-collection",
+  "version": "1.0.0",
+  "description": "MCP collection with integrated supergateway",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erhardtconsulting/mcp-collection.git"
+  },
+  "keywords": [
+    "MCP"
+  ],
+  "author": "Simon Erhardt <simon@erhardt.consulting>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erhardtconsulting/mcp-collection/issues"
+  },
+  "homepage": "https://github.com/erhardtconsulting/mcp-collection#readme",
+  "dependencies": {
+    "supergateway": "2.7.0"
+  }
+}
