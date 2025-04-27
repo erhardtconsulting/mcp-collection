@@ -10,6 +10,7 @@ VENV_DIR="/app/.venv"
 # available MCP servers
 ALLOWED_SERVERS=(
   "mcp-server-fetch"
+  "mcp-server-puppeteer"
   "mcp-server-qdrant"
 )
 
@@ -46,7 +47,7 @@ if [[ $MATCHED == false ]]; then
 fi
 
 # run
-export PATH="$VENV_DIR/bin:$PATH"
+export PATH="$VENV_DIR/bin:/app/node_modules/.bin:$PATH"
 source "$VENV_DIR/bin/activate"
 
 # prepare server cmd

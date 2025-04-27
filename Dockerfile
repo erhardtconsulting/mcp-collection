@@ -7,7 +7,7 @@ ARG UV_VERSION="0.6.17"
 
 ENV LANG="C.UTF-8" \
     LC_ALL="C.UTF-8" \
-    # Python's configuration:
+    # Python's configuration
     PYTHONFAULTHANDLER=1 \
     PYTHONUNBUFFERED=1 \
     PYTHONHASHSEED="random" \
@@ -16,17 +16,39 @@ ENV LANG="C.UTF-8" \
     UV_NO_CACHE=1 \
     UV_PYTHON_DOWNLOADS="automatic" \
     UV_LINK_MODE="copy" \
+    # supergateway configuration
     PORT=8080 \
     SSE_PATH="/sse" \
     MESSAGE_PATH="/message" \
-    BASE_URL="http://localhost:8080"
+    BASE_URL="http://localhost:8080" \
+    # mcp-server-puppeteer configuration
+    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true" \
+    PUPPETEER_EXECUTABLE_PATH="/usr/bin/chromium" \
+    DBUS_SESSION_BUS_ADDRESS="autolaunch:" \
+    DOCKER_CONTAINER="true"
 
 # Install poetry
 RUN set -eux; \
     apt-get update; \
     DEBIAN_FRONTEND=noninteractive apt-get -y install \
+      ca-certificates \
+      chromium \
       curl \
-      tini; \
+      fonts-ipafont-gothic  \
+      fonts-wqy-zenhei  \
+      fonts-thai-tlwg  \
+      fonts-kacst  \
+      fonts-freefont-ttf \
+      gnupg \
+      libasound2 \
+      libatk-bridge2.0-0 \
+      libdrm2 \
+      libgbm1 \
+      libgtk2.0-0 \
+      libxkbcommon0 \
+      libxss1 \
+      tini \
+      wget; \
     case "${TARGETARCH}" in \
       'amd64') export ARCH='x86_64' ;; \
       'arm64') export ARCH='aarch64' ;; \
