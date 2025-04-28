@@ -11,11 +11,15 @@ MCPO_API_KEY=${MCPO_API_KEY:-"not-secure"}
 
 # available MCP servers
 ALLOWED_SERVERS=(
+  "mcp-maven-deps"
   "mcp-searxng"
+  "mcp-server-calculator"
   "mcp-server-fetch"
   "mcp-server-puppeteer"
   "mcp-server-qdrant"
+  "mcp-server-time"
   "mcp-yahoo-finance"
+  "npm-search-mcp-server"
 )
 
 print_help() {

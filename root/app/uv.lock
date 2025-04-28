@@ -527,18 +527,34 @@ name = "mcp-collection"
 version = "1.0.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "mcp-server-calculator" },
     { name = "mcp-server-fetch" },
     { name = "mcp-server-qdrant" },
+    { name = "mcp-server-time" },
     { name = "mcp-yahoo-finance" },
     { name = "mcpo" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "mcp-server-calculator", specifier = "==0.1.2" },
     { name = "mcp-server-fetch", specifier = "==2025.4.7" },
     { name = "mcp-server-qdrant", specifier = "==0.7.1" },
+    { name = "mcp-server-time", specifier = "==0.6.2" },
     { name = "mcp-yahoo-finance", specifier = "==0.1.1" },
     { name = "mcpo", specifier = "==0.0.12" },
+]
+
+[[package]]
+name = "mcp-server-calculator"
+version = "0.1.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mcp" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/22/6a/af9685fca81936156c0c01c946f9fe890c9b937c647d0f8cc40494c53833/mcp_server_calculator-0.1.2.tar.gz", hash = "sha256:b3fc36957f9dcfadaff1d8f660402527b9b66f80ea7f02ab3b975ca0eb43d395", size = 15229 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/19/f8/c6db96ccc9e075c464992e07ba1f9bc0292bfa1a15d7d480342bb9a373a9/mcp_server_calculator-0.1.2-py3-none-any.whl", hash = "sha256:7937b7c2f5dd729b08bbfe300fdfb8e3f65f0b3894c1e8113ce73a03edcbf05f", size = 4070 },
 ]
 
 [[package]]
@@ -572,6 +588,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/9a/3a/57f9f5caeb3bfa7a0c60bce632d8e72b479d47077ef0d6d00b2d36be0eef/mcp_server_qdrant-0.7.1.tar.gz", hash = "sha256:ff3053ea89f3a6ce23dafb9f6485b1faaca97dd9c56a1df4ecc1b931442caa1e", size = 83129 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/1d/27/b92936758ed5d7fc5b0141cddf57c53ee6b618a59aa89eb08d760c15f458/mcp_server_qdrant-0.7.1-py3-none-any.whl", hash = "sha256:0891d8e0b429c8e3d284f8be629033327dfc0c99c30f7526b3ec4b5f17b21c01", size = 15855 },
+]
+
+[[package]]
+name = "mcp-server-time"
+version = "0.6.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mcp" },
+    { name = "pydantic" },
+    { name = "tzdata" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/76/65/6f4ac2df4dbed45e2606ceb8d05d2d63f3d1a4a6982babf37059683c88d0/mcp_server_time-0.6.2.tar.gz", hash = "sha256:f8baddaf4787a4ccf8bb585fa936e3537692dd9a24ac2bbe5d2616014f08a6b2", size = 26714 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f6/71/e5b546bbe8769be4608728624ad4c4c51c93243a124e527b39465bcf559e/mcp_server_time-0.6.2-py3-none-any.whl", hash = "sha256:6b67640eb9df3df834b3de5001e37ca8b0c997ce700b014882b585964094d116", size = 5693 },
 ]
 
 [[package]]
