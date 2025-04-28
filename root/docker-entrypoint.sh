@@ -7,6 +7,7 @@ MESSAGE_PATH=${MESSAGE_PATH:-"/message"}
 BASE_URL=${BASE_URL:-"http://localhost:$PORT"}
 VENV_DIR="/app/.venv"
 SERVER_MODE=${SERVER_MODE:-"supergateway"}
+MCPO_API_KEY=${MCPO_API_KEY:-"not-secure"}
 
 # available MCP servers
 ALLOWED_SERVERS=(
@@ -71,8 +72,9 @@ if [[ "$SERVER_MODE" == "supergateway" ]]; then
     --stdio "$SERVER_CMD"
 elif [[ "$SERVER_MODE" == "mcpo" ]]; then
   exec /app/.venv/bin/mcpo \
-    --host 0.0.0.0 \
+    --host "0.0.0.0" \
     --port "$PORT" \
+    --api-key "$MCPO_API_KEY" \
     -- \
     "$SERVER_CMD"
 else
