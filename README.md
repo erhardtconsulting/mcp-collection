@@ -114,6 +114,8 @@ Pair the Service with an Ingress or Gateway API resource to expose it externally
 
 Released under the MIT License – see `LICENSE` for details.
 
+**Important**: The MIT License is only valid for this container as execution environment. For the packaged MCP servers check their licenses.
+
 ---
 
 **MCP‑Collection** is maintained by *erhardt consulting GmbH* – happy hacking!
