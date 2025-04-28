@@ -15,6 +15,7 @@ ALLOWED_SERVERS=(
   "mcp-server-fetch"
   "mcp-server-puppeteer"
   "mcp-server-qdrant"
+  "mcp-yahoo-finance"
 )
 
 print_help() {

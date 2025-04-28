@@ -29,9 +29,13 @@ docker run --rm -p 8080:8080 \
 
 ### Included MCP servers
 
-| Package            |
-|--------------------|
-| `mcp-server-fetch` |
+| Package                |
+|------------------------|
+| `mcp-searxng`          |
+| `mcp-server-fetch`     |
+| `mcp-server-puppeteer` |
+| `mcp-server-qdrant`    |
+| `mcp-yahoo-finance`    |
 
 ## 🐳  Image layout
 
