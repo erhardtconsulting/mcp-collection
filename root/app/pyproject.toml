@@ -7,7 +7,7 @@ dependencies = [
     "mcp-server-calculator==0.1.2",
     "mcp-server-fetch==2025.4.7",
     "mcp-server-qdrant==0.7.1",
-    "mcp-server-time==0.6.2",
+    "mcp-server-time==2025.9.25",
     "mcp-yahoo-finance==0.1.2",
     "mcpo==0.0.12",
 ]
