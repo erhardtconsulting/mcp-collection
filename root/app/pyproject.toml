@@ -4,7 +4,7 @@ version = "1.0.0"
 description = "MCP collection with integrated supergateway"
 requires-python = ">=3.13"
 dependencies = [
-    "mcp-server-calculator==0.1.2",
+    "mcp-server-calculator==0.2.0",
     "mcp-server-fetch==2025.4.7",
     "mcp-server-qdrant==0.7.1",
     "mcp-server-time==0.6.2",
