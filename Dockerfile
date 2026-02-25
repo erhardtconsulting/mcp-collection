@@ -1,4 +1,4 @@
-FROM docker.io/library/node:lts-slim@sha256:61bf992754b4ab288d41cb92c25392195d0035871b4723a0abd30a49dcba356c
+FROM docker.io/library/node:lts-slim@sha256:e8e2e91b1378f83c5b2dd15f0247f34110e2fe895f6ca7719dbb780f929368eb
 
 ARG TARGETARCH
 
