@@ -3,7 +3,7 @@ FROM docker.io/library/node:lts-slim@sha256:d8e448a56fc63242f70026718378bd4b00f8
 ARG TARGETARCH
 
 # renovate: datasource=github-releases depName=astral-sh/uv versioning=semver
-ARG UV_VERSION="0.8.24"
+ARG UV_VERSION="0.10.12"
 
 ENV LANG="C.UTF-8" \
     LC_ALL="C.UTF-8" \
